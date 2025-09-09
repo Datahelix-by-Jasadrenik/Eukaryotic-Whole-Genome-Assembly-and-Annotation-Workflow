@@ -30,14 +30,12 @@ This workflow uses Nextflow to manage compute and software resources. You will n
 wget [https://ont-exd-int-s3-euwst1-epi2me-labs.s3.amazonaws.com/wf-basecalling/wf-basecalling-demo.tar.gz](https://ont-exd-int-s3-euwst1-epi2me-labs.s3.amazonaws.com/wf-basecalling/wf-basecalling-demo.tar.gz)
 tar -xzvf wf-basecalling-demo.tar.gz
 
-
 Usage:
 
 nextflow run epi2me-labs/wf-basecalling \
 --input "path/to/fast5/or/pod5/files" \
 --config "path/to/basecalling_config.json" \
 -profile standard
-
 
 Note: Replace --input with the path to your raw signal files and --config with the appropriate configuration file for your data.
 
@@ -49,11 +47,9 @@ The simplest way to install Medaka is using conda.
 
 conda create -n medaka -c conda-forge -c nanoporetech -c bioconda medaka
 
-
 Usage:
 
 medaka_consensus -i input_basecalls.fq -d draft_assembly.fa -o output_directory -t <threads>
-
 
 Note: input_basecalls.fq should be your basecalled FASTQ file, and draft_assembly.fa should be the assembly output from a tool like Flye.
 
@@ -68,14 +64,12 @@ conda config --add channels conda-forge
 conda create -n flye_env flye
 conda install -c bioconda flye
 
-
 Usage:
 
 flye --nano-hq all_reads_combined.*fastq.gz \
 -o output_directory \
 -g <your_genome_size> \
 -t <threads>
-
 
 Note: Flye can accept up to 300 fastq files. If you have more, they must be concatenated first.
 
@@ -86,13 +80,11 @@ Installation:
 
 conda install -c conda-forge -c bioconda -c nanoporetech fastcat
 
-
 Usage:
 
 fastcat directory_input/*.fastq.gz \
 --hist label_histograms/ \
 > output.fastq.gz
-
 
 Augustus (Gene Prediction)
 Augustus is a gene prediction tool.
@@ -101,11 +93,9 @@ Installation:
 
 sudo apt install augustus augustus-data augustus-doc
 
-
 Usage:
 
 augustus --species=<species_name> genome.fasta > annotation.gff
-
 
 Note: To see the full list of available species models, refer to the official Augustus documentation.
 
@@ -116,11 +106,9 @@ Installation:
 
 conda install -c bioconda upimapi
 
-
 Usage:
 
 upimapi -i path/to/sequences.fasta -o path/to/output_directory -db database -t threads
-
 
 Note: The input should be a fasta file containing amino acid sequences.
 
@@ -138,11 +126,9 @@ git clone [https://github.com/smirarab/sate-tools-linux.git](https://github.com/
 cd pasta
 python3 setup.py develop --user
 
-
 Usage:
 
 python run_roadies.py --cores 16
-
 
 Note: A config.yaml file needs to be set up first. It is recommended to use ribosomal RNA genes (e.g., ITS/18S) for phylogenetic analysis instead of the whole genome.
 
@@ -151,11 +137,9 @@ rRNA Annotation:
 
 barrnap --kingdom euk --threads 24 --outseq 'rRNA.fasta' 'assembly.fasta' > 'rRNA.gff'
 
-
 Convert GFF to Fasta:
 
 'getAnnoFasta.pl' --seqfile='seq.fasta' 'seq.gff'
-
 
 Contributing
 If you have suggestions for improvements or alternative tools for this workflow, please feel free to open an issue or submit a pull request.
