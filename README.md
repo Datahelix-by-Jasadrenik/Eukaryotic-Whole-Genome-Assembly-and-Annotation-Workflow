@@ -34,10 +34,10 @@ This workflow uses Nextflow to manage compute and software resources. You will n
 
 Usage:
 
-nextflow run epi2me-labs/wf-basecalling \
---input "path/to/fast5/or/pod5/files" \
---config "path/to/basecalling_config.json" \
--profile standard
+> nextflow run epi2me-labs/wf-basecalling \
+> --input "path/to/fast5/or/pod5/files" \
+> --config "path/to/basecalling_config.json" \
+> -profile standard
 
 Note: Replace --input with the path to your raw signal files and --config with the appropriate configuration file for your data.
 
@@ -47,11 +47,11 @@ Medaka is a tool to create a consensus sequence from nanopore sequencing data us
 Installation:
 The simplest way to install Medaka is using conda.
 
-conda create -n medaka -c conda-forge -c nanoporetech -c bioconda medaka
+> conda create -n medaka -c conda-forge -c nanoporetech -c bioconda medaka
 
 Usage:
 
-medaka_consensus -i input_basecalls.fq -d draft_assembly.fa -o output_directory -t <threads>
+> medaka_consensus -i input_basecalls.fq -d draft_assembly.fa -o output_directory -t <threads>
 
 Note: input_basecalls.fq should be your basecalled FASTQ file, and draft_assembly.fa should be the assembly output from a tool like Flye.
 
@@ -60,18 +60,18 @@ Flye is a de novo assembler for single-molecule sequencing reads.
 
 Installation:
 
-conda config --add channels defaults
-conda config --add channels bioconda
-conda config --add channels conda-forge
-conda create -n flye_env flye
-conda install -c bioconda flye
+> conda config --add channels defaults
+> conda config --add channels bioconda
+> conda config --add channels conda-forge
+> conda create -n flye_env flye
+> conda install -c bioconda flye
 
 Usage:
 
-flye --nano-hq all_reads_combined.*fastq.gz \
--o output_directory \
--g <your_genome_size> \
--t <threads>
+> flye --nano-hq all_reads_combined.*fastq.gz \
+> -o output_directory \
+> -g <your_genome_size> \
+> -t <threads>
 
 Note: Flye can accept up to 300 fastq files. If you have more, they must be concatenated first.
 
@@ -80,12 +80,12 @@ Fastcat is used to concatenate multiple fastq files.
 
 Installation:
 
-conda install -c conda-forge -c bioconda -c nanoporetech fastcat
+> conda install -c conda-forge -c bioconda -c nanoporetech fastcat
 
 Usage:
 
-fastcat directory_input/*.fastq.gz \
---hist label_histograms/ \
+> fastcat directory_input/*.fastq.gz \
+> --hist label_histograms/ \
 > output.fastq.gz
 
 Augustus (Gene Prediction)
@@ -93,11 +93,11 @@ Augustus is a gene prediction tool.
 
 Installation:
 
-sudo apt install augustus augustus-data augustus-doc
+> sudo apt install augustus augustus-data augustus-doc
 
 Usage:
 
-augustus --species=<species_name> genome.fasta > annotation.gff
+> augustus --species=<species_name> genome.fasta > annotation.gff
 
 Note: To see the full list of available species models, refer to the official Augustus documentation.
 
@@ -106,11 +106,11 @@ UPIMAPI is used for protein annotation using the Uniprot database.
 
 Installation:
 
-conda install -c bioconda upimapi
+> conda install -c bioconda upimapi
 
 Usage:
 
-upimapi -i path/to/sequences.fasta -o path/to/output_directory -db database -t threads
+> upimapi -i path/to/sequences.fasta -o path/to/output_directory -db database -t threads
 
 Note: The input should be a fasta file containing amino acid sequences.
 
@@ -119,29 +119,29 @@ ROADIES is used for phylogenetic analysis.
 
 Installation:
 
-conda create -n roadies_env python=3.9 ete3 seaborn
-conda activate roadies_env
-conda install roadies=0.1.10
-cd $CONDA_PREFIX/ROADIES 
-git clone [https://github.com/smirarab/pasta.git](https://github.com/smirarab/pasta.git)
-git clone [https://github.com/smirarab/sate-tools-linux.git](https://github.com/smirarab/sate-tools-linux.git)
-cd pasta
-python3 setup.py develop --user
+> conda create -n roadies_env python=3.9 ete3 seaborn
+> conda activate roadies_env
+> conda install roadies=0.1.10
+> cd $CONDA_PREFIX/ROADIES 
+> git clone [https://github.com/smirarab/pasta.git](https://github.com/smirarab/pasta.git)
+> git clone [https://github.com/smirarab/sate-tools-linux.git](https://github.com/smirarab/sate-tools-linux.git)
+> cd pasta
+> python3 setup.py develop --user
 
 Usage:
 
-python run_roadies.py --cores 16
+> python run_roadies.py --cores 16
 
 Note: A config.yaml file needs to be set up first. It is recommended to use ribosomal RNA genes (e.g., ITS/18S) for phylogenetic analysis instead of the whole genome.
 
 Other Commands
 rRNA Annotation:
 
-barrnap --kingdom euk --threads 24 --outseq 'rRNA.fasta' 'assembly.fasta' > 'rRNA.gff'
+> barrnap --kingdom euk --threads 24 --outseq 'rRNA.fasta' 'assembly.fasta' > 'rRNA.gff'
 
 Convert GFF to Fasta:
 
-'getAnnoFasta.pl' --seqfile='seq.fasta' 'seq.gff'
+> 'getAnnoFasta.pl' --seqfile='seq.fasta' 'seq.gff'
 
 Contributing
 If you have suggestions for improvements or alternative tools for this workflow, please feel free to open an issue or submit a pull request.
