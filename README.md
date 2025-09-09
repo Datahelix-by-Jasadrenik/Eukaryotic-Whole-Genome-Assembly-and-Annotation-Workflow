@@ -29,8 +29,8 @@ Installation:
 This workflow uses Nextflow to manage compute and software resources. You will need to install Nextflow and either Docker or Singularity.
 
 # Download the workflow
-'''wget [https://ont-exd-int-s3-euwst1-epi2me-labs.s3.amazonaws.com/wf-basecalling/wf-basecalling-demo.tar.gz](https://ont-exd-int-s3-euwst1-epi2me-labs.s3.amazonaws.com/wf-basecalling/wf-basecalling-demo.tar.gz)
-tar -xzvf wf-basecalling-demo.tar.gz'''
+wget [https://ont-exd-int-s3-euwst1-epi2me-labs.s3.amazonaws.com/wf-basecalling/wf-basecalling-demo.tar.gz](https://ont-exd-int-s3-euwst1-epi2me-labs.s3.amazonaws.com/wf-basecalling/wf-basecalling-demo.tar.gz)
+tar -xzvf wf-basecalling-demo.tar.gz
 
 Usage:
 
@@ -47,11 +47,11 @@ Medaka is a tool to create a consensus sequence from nanopore sequencing data us
 Installation:
 The simplest way to install Medaka is using conda.
 
-'''conda create -n medaka -c conda-forge -c nanoporetech -c bioconda medaka'''
+conda create -n medaka -c conda-forge -c nanoporetech -c bioconda medaka
 
 Usage:
 
-'''medaka_consensus -i input_basecalls.fq -d draft_assembly.fa -o output_directory -t <threads>'''
+medaka_consensus -i input_basecalls.fq -d draft_assembly.fa -o output_directory -t <threads>
 
 Note: input_basecalls.fq should be your basecalled FASTQ file, and draft_assembly.fa should be the assembly output from a tool like Flye.
 
