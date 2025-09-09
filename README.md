@@ -1,6 +1,8 @@
 # Eukaryotic-Whole-Genome-Assembly-and-Annotation-Workflow
 This repository documents a bioinformatic workflow for the de novo assembly and annotation of a eukaryotic genome with a minimum reference. The workflow utilizes various open-source tools to process Whole Genome Sequencing (WGS) data, perform assembly and polishing, and ultimately annotate the assembled genome.
 
+![Workflow Image](images/workflow_overview.png)
+
 Workflow Overview
 The following steps provide a high-level overview of the entire process.
 
@@ -32,10 +34,10 @@ tar -xzvf wf-basecalling-demo.tar.gz'''
 
 Usage:
 
-'''nextflow run epi2me-labs/wf-basecalling \
+nextflow run epi2me-labs/wf-basecalling \
 --input "path/to/fast5/or/pod5/files" \
 --config "path/to/basecalling_config.json" \
--profile standard'''
+-profile standard
 
 Note: Replace --input with the path to your raw signal files and --config with the appropriate configuration file for your data.
 
