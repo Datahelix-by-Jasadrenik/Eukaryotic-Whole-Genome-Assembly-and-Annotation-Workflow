@@ -29,8 +29,8 @@ Installation:
 This workflow uses Nextflow to manage compute and software resources. You will need to install Nextflow and either Docker or Singularity.
 
 # Download the workflow
-wget [https://ont-exd-int-s3-euwst1-epi2me-labs.s3.amazonaws.com/wf-basecalling/wf-basecalling-demo.tar.gz](https://ont-exd-int-s3-euwst1-epi2me-labs.s3.amazonaws.com/wf-basecalling/wf-basecalling-demo.tar.gz)
-tar -xzvf wf-basecalling-demo.tar.gz
+> wget [https://ont-exd-int-s3-euwst1-epi2me-labs.s3.amazonaws.com/wf-basecalling/wf-basecalling-demo.tar.gz](https://ont-exd-int-s3-euwst1-epi2me-labs.s3.amazonaws.com/wf-basecalling/wf-basecalling-demo.tar.gz)
+> tar -xzvf wf-basecalling-demo.tar.gz
 
 Usage:
 
