@@ -93,7 +93,7 @@ Usage:
 > --hist label_histograms/ \
 > output.fastq.gz
 
-**Augustus **(Gene Prediction)
+**Augustus** (Gene Prediction)
 https://github.com/Gaius-Augustus/GUSHR
 Augustus is a gene prediction tool.
 
